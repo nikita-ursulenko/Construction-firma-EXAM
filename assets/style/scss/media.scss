@@ -1,0 +1,328 @@
+
+$mobile-l: 440px;
+$burger-size: 600px;
+$medium-screen: 768px;
+$large-screen: 1024px;
+
+//Шрифты---------- от max до 1024
+@media screen and (min-width: $large-screen) {
+  body { font-size: 18px; } /* Основной текст */
+  h1 { font-size: 32px; } /* Заголовок первого уровня */
+  h2 { font-size: 28px; } /* Заголовок второго уровня */
+  h3 { font-size: 20px; } /* Заголовок третьего уровня */
+  h4 { font-size: 18px; } /* Заголовок четвёртого уровня */
+  p { font-size: 16px; } /* Основной текст */
+}
+/* Для экранов шириной от 787px до 1023px */
+@media only screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+  body { font-size: 16px; } /* Основной текст */
+  h1 { font-size: 28px; } /* Заголовок первого уровня */
+  h2 { font-size: 24px; } /* Заголовок второго уровня */
+  h3 { font-size: 18px; } /* Заголовок третьего уровня */
+  h4 { font-size: 16px; } /* Заголовок четвёртого уровня */
+  p { font-size: 14px; } /* Основной текст */
+}
+/* Для экранов шириной до 786px */
+@media only screen and (max-width: $medium-screen) {
+  body { font-size: 14px; } /* Основной текст */
+  h1 { font-size: 24px; } /* Заголовок первого уровня */
+  h2 { font-size: 20px; } /* Заголовок второго уровня */
+  h3 { font-size: 16px; } /* Заголовок третьего уровня */
+  h4 { font-size: 14px; } /* Заголовок четвёртого уровня */
+  p { font-size: 12px; } /* Основной текст */
+}
+//------------
+
+
+// Для экранов шириной от 0px до $large-screen 1024px
+@media screen and (max-width: $large-screen) {
+  body {
+    main {
+      .price {
+        .wrapper {
+          flex-direction: column;
+          width: 80%;
+        }
+        &_case {
+          padding: 5%;
+          &:first-child {
+            margin: 0;
+          }
+          margin-top: 15%;
+          h4 {
+            line-height: 5;
+          }
+          &_img {
+            &_item {
+              height: 100%;
+              margin-top: -10%;
+            }
+          }
+          &_inner {
+            padding-top: 3%;
+            margin-top: 3%;
+          }
+        }
+      }
+    }
+  }
+}
+// Для экранов шириной от MAX до $large-screen 1024px 
+@media screen and (min-width: $large-screen) {
+  body {
+    main { 
+      .price {
+        &_case {
+          padding: 2%;
+          margin: 0% 1%;
+          h4 {
+            line-height: 3;
+          }
+          &_img {
+            &_item {
+              height: 200px;
+              margin-top: -25%;
+            }
+          }
+          &_inner {
+            padding-top: 10%;
+            margin-top: 10%;
+          }
+        }
+      }
+    } 
+    footer {
+      .contact {
+        &_content {
+          margin-right: 5%;
+        }
+      }
+      /* iframe {
+        height: 400px;
+        width: 600px;
+      } */
+    }
+  }
+}
+//Для экранов шириной от MAX до $medium-screen 786px
+@media screen and (min-width: $medium-screen) {
+  body {
+    main {
+      .team {
+        grid-template-columns: auto auto;
+        justify-content: normal;
+        &_flex {
+          justify-content: center;
+        }
+      }
+      .reviews {
+        &_wrapper {
+          &_item {
+            width: 45%;
+          }
+        }
+      }
+    }
+    footer {
+      .contact {
+        &_content {
+          width: 65%;
+          margin-right: 5%;
+        }
+      }
+    }
+  }
+}
+//Для экранов шириной от 0 до $medium-screen 786px
+@media screen and (max-width: $medium-screen) {
+  body {
+    main {
+      .team {
+        justify-content: center;
+        line-height: 1.4;
+        &_flex {
+          padding-top: 5%;
+        }
+      }
+      .reviews {
+        &_wrapper {
+          flex-direction: column;
+          &_item {
+            width: 100%;
+          }
+        }
+      }
+      .price {
+        &_case {
+          padding: 5%;
+        }
+      }
+      .call_back {
+        padding: 2%;
+        &_wrapper {
+          width: 95%;
+          flex-direction: column;
+          .call_text {
+            width: 90%;
+            margin: auto;
+          }
+          .call_form {
+            width: 90%;
+            margin: auto;
+          }
+        }
+      }
+    }
+    footer {
+      .contact {
+        flex-direction: column-reverse;
+        &_call {
+          padding-bottom: 5%;
+          text-align: center;
+          width: 80%;
+          margin: auto;
+          form {
+            p {
+              text-align: start;
+            }
+            button {
+              width: 80%;
+            }
+          } 
+        }
+      }
+    }
+  }
+}
+//От МАКС до 600
+@media screen and (min-width: $burger-size) {
+  body {
+    header {
+      .btn_burger_wrapper {
+        display: none;
+      }
+      nav {
+        background-color: #0a8ff5;
+        ul {
+          display: flex;
+          max-width: 90%;
+          padding: 2%;
+          li {
+            position: relative;
+            cursor: pointer;
+            width: max-content;
+            &:hover::after {
+              width: 100%;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -40%;
+            }
+          }
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+//От 0 до 600
+@media screen and (max-width: $burger-size) {
+  body {
+    header {
+      nav {
+        ul {
+          transition: opacity 0.4s ease;
+          opacity: 0;
+          display: none;
+          position: absolute;
+          right: 0;
+          flex-direction: column;
+          width: max-content;
+          padding: 3% 5% 3% 3%;
+          line-height: 4;
+          background-color: #0a8ff5;
+          border-radius: 2px 0 2px 2px;
+          box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+          li {
+            position: relative;
+            cursor: pointer;
+            width: max-content;
+            &:hover::after {
+              width: 100%;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Для экранов шириной от 0px до $mobile_l 440px
+@media screen and (max-width: $mobile-l) {
+  body {
+    header {
+      .info_header {
+        max-width: 90%;
+        padding: 2% 0% 0 2% 0;
+        padding-top: 30px;
+      }
+    }
+    .about {
+      height: 400px;
+    }
+    .team {
+      &_flex {
+        img {
+          height: 36px;
+          width: 36px;
+        }
+      }
+    }
+    .reviews {
+      padding-bottom: 10%;
+    }
+    .order {
+      &_wrapper {
+          max-width: 95%;
+      }
+    }
+  }
+}
+// Для экранов шириной от MAX до $mobile_l 440px
+@media screen and (min-width: $mobile-l) {
+  body {
+    header {
+      .info_header {
+        max-width: 80%;
+        padding: 7% 0 2% 0;
+      }
+    }
+    .about {
+      height: 600px;
+    }
+    .team {
+      &_flex {
+        img {
+          height: 48px;
+          width: 48px;
+        }
+      }
+    }
+    .reviews {
+      padding-bottom: 10%;
+    }
+    .order {
+      &_wrapper {
+          max-width: 80%;
+      }
+    }
+  }
+}
+

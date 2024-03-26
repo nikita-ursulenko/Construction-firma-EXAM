@@ -1,0 +1,97 @@
+/* Обнуление стилей (Reset) */
+
+/* Сброс стандартных отступов и полей у тегов */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Настройка стилей для тегов семантической разметки */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Установка базовых стилей для строчных элементов */
+abbr,
+audio,
+canvas,
+datalist,
+mark,
+output,
+progress,
+video {
+  display: inline-block;
+}
+
+/* Устранение стандартного стиля для формы в некоторых браузерах */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* Устранение стандартных стилей для некоторых элементов в браузерах */
+input,
+select,
+textarea,
+button {
+  margin: 0;
+}
+
+/* Устранение стандартного стиля для некоторых элементов в Safari */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+}
+
+/* Сброс стандартного стиля для элементов с границей браузера */
+html {
+  box-sizing: border-box;
+}
+
+/* Установка размеров на все элементы и их потомков */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  text-decoration: none;
+}

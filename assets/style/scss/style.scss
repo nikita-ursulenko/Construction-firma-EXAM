@@ -1,0 +1,638 @@
+$primary-color: #0a8ff5;
+$btn-color: #700af5;
+$btn-color-hover: #e50af5;
+$gray-color: rgb(231, 231, 231);
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 60px #fafafa inset !important;
+    background-color: #fafafa !important;
+    background-clip: content-box !important;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 9999; // Позволяет окну быть поверх других элементов
+    
+    .popup-content {
+      p {
+        color: white;
+      }
+    }
+  
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: white;
+      font-size: 20px;
+    }
+  }
+  
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+p {
+    color: gray;
+}
+.text_shadow {
+    text-shadow: 3px 3px 5px #0000004a;
+}
+.container {
+    margin: auto;
+    max-width: 1440px;
+}
+.grid_revert_number {
+    grid-column: 2;
+    grid-row: 1;
+}
+.grid_revert_text {
+    grid-column: 3;
+}
+.real-checkbox {
+    display: none;
+}
+.custom_checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 1.5px solid $gray-color;
+    vertical-align: sub;
+    border-radius: 25%;
+    &::before {
+        content: "";
+        background-image: url(../../images/check.png);
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat ;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 0.2s ease-in;
+    }
+}
+.real-checkbox:checked + .custom_checkbox::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+.animated-block {
+    opacity: 0;
+    transform: translateY(200px); // Начальное положение блока
+    transition: opacity 0.5s ease, transform 1s ease; // Плавные переходы
+  
+    &.visible {
+      opacity: 1;
+      transform: translateY(0); // Конечное положение блока
+    }
+  }  
+.button_a {
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+}
+.button_hover {
+    transition: background-color  .5s ease, border-radius .5s ease-in;
+    &:hover {
+        background-color: $btn-color-hover;
+        border-radius: 5px;
+    }
+}
+.burger_active {
+    .btn_burger_wrapper_content {
+        transform: rotate(45deg);
+        &::before {
+            display: none;
+        }
+        &::after {
+            transform: rotate(-90deg);
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+.notification_eror {
+    position: relative;
+    &::after {
+        content: "Введите это поле";
+        position: absolute;
+        top: 350%;
+        right: 0;
+        width: max-content;
+        height: max-content;
+        color: rgba(255, 0, 0, 0.654);
+    }
+}
+
+
+
+body {
+    header {
+        nav {
+            z-index: 9999;
+            position: fixed;
+            width: 100%;
+            .btn_burger_wrapper {
+                position: absolute;
+                z-index: 1000;
+                top: 20px;
+                right: 20px;
+                &:hover {
+                    cursor: pointer;
+                }
+                &_content {
+                    margin: 10px 0px;
+                    content: "";
+                    width: 25px;
+                    height: 3px;
+                    background-color: $btn-color;
+                    position: relative;
+                    transition: transform 1s ease;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 200%;
+                        left: 0;
+                        width: 100%;
+                        height: 3px;
+                        background-color: $btn-color;
+                        transition: transform 1s ease;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 200%;
+                        left: 0;
+                        width: 100%;
+                        height: 3px;
+                        background-color: $btn-color;
+                    }
+                }
+            }
+            ul {
+                justify-content: space-around;  
+                margin: auto;
+                display: flex;
+                li {
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -45%;
+                        left: 0;
+                        height: 2px;
+                        width: 0%;
+                        background-color: $btn-color;
+                        transition: width 0.3s ease;
+                    }
+                    a {
+                        color: white;
+                    }
+                }
+            }
+        }
+        .info_header {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            margin: auto;
+            &_name {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                .logo {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    margin-right: 5%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+            &_contact {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                a {
+                    padding: 3%;
+                    background-color: $btn-color;
+                    opacity: 1;
+                    color: white;
+                }
+            }
+        }
+    }
+    main {
+        .about {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            &_wrapper {
+                display: flex;
+                width: 70%;
+                height: 100%;
+                margin: auto;
+                &_content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    height: 100%;
+                    h2 {
+                        max-width: 70%;
+                        color: white;
+                    }
+                    p {
+                        line-height: 2.5;
+                        color: black;
+
+                    }
+                    a {
+                        display: inline-block;
+                        padding: 2%;
+                        color: white;
+                        background-color: $btn-color;
+                    }
+                }
+            }
+        }
+        .team {
+            display: grid;
+            margin-top: 2%;
+            width: 85%;
+            &_flex {
+                display: flex;
+                margin: 3% 0%;
+                width: 100%;
+                div {
+                    margin-left: 5%;
+                    h3 {
+                        width: max-content;
+                    }
+                    p {
+                        max-width: 200px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+        .company {
+            background-color: $gray-color;
+            padding: 2%;
+            img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 10px;
+                width: 80%;
+                -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); 
+                box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+            }
+            div {
+                max-width: 80%;
+                margin: auto;
+            }
+            p {
+                color: rgb(91, 91, 91);
+            }
+        }
+        .order {
+            margin: 2% 0 2% 0;
+            h2 {
+                text-align: center;
+                line-height: 3;
+            }
+            &_wrapper {
+                p {
+                    color: black;
+                }
+                margin: auto;
+                &_item {
+                    display: grid;
+                    grid-template-columns: 4fr 1fr 4fr;
+                    height: 120px;
+                    &_case {
+                        max-width: 80%;
+                        margin: auto;
+                        p {
+                            color: rgb(78, 78, 78);
+                        }
+                    }
+                    .order_number {
+                        font-size: 32px;
+                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        width: 80px;
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: rgba(10, 143, 245, 0.361);
+                            border-radius: 50%;
+                            width: 50px;
+                            height: 50px;
+                            margin: 20%;
+                            position: relative;
+                            animation: colorChange 2s infinite;
+                            transition: background-color 3s ease;
+                            @keyframes colorChange {
+                                0% {
+                                    background-color: rgba(10, 143, 245, 0.361);
+                                  }
+                                  50% {
+                                    background-color: rgba(10, 143, 245, 0); /* Измените цвет по вашему желанию */
+                                  }
+                                  100% {
+                                    background-color: rgba(10, 143, 245, 0.361);
+                                  }
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 105%;
+                                left: 48%;
+                                height: 130%;
+                                width: 2px;
+                                background-color: $primary-color;
+                            }
+                            p {
+                                display: block;
+                                background-color: $primary-color;
+                                opacity: 1;
+                                border-radius: 50%;
+                                width: 36px;
+                                height: 36px;
+                                font-size: 32px;
+                            }
+                        }
+                        .last_child_span::after {
+                            display: none;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .price {
+            background-color: $gray-color;
+            padding: 5%;
+            &_text {
+                text-align: center;
+            }
+            .wrapper {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 10%;
+            }
+            &_item {
+                color: black;
+                span {
+                    color: $primary-color;
+                    line-height: 3;
+                }
+            }
+            &_case {
+                background-color: white;
+                width: 100%;
+                margin: 0% 1%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-radius: 1px;
+                -webkit-box-shadow: 1px 1px 25px 5px rgba(0, 0, 0, 0.151); 
+                box-shadow: 1px 1px 25px 5px rgba(0, 0, 0, 0.132);
+                p {
+                    color: rgb(76, 76, 76);
+                }
+                &_img {
+                    &_item {
+                        width: 80%;
+                        height: 200px;
+                        margin: auto;
+                        margin-bottom: 0;
+                        margin-top: -25%;
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 1px;
+                            object-fit: cover;
+                            transition: transform 0.5s ease-in;
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                            
+                        }
+                    }
+                }
+                &_inner {
+                    line-height: 1.5;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        background-color: $gray-color;
+                        position: absolute;
+                        top: 0;
+
+                    }
+                    a {
+                        background-color: $btn-color;
+                        display: block;
+                        padding: 3%;
+                        text-align: center;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .slider {
+            &_text {
+                text-align: center;
+                padding: 5%;
+            }
+            .splide {
+                margin: auto;
+
+                img {
+                    transition: 2s ease;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        .call_back {
+            margin-top: 5%;
+            background-color: $primary-color;
+            &_wrapper {
+                display: flex;
+                justify-content: space-around;
+                max-width: 90%;
+                margin: auto;
+                padding: 2% 0 2% 0;
+                .call_text {
+                    display: flex;
+                    align-items: center;
+                    width: 40%;
+                    &_img {
+                        background-color: white;
+                        border-radius: 50%;
+                        width: max-content;
+                        height: max-content;
+                        padding: 10px;
+                        &_content {
+                            width: 36px;
+                            height: 36px;
+                            background-size: contain;
+                        }
+                    }
+                    &_content {
+                        max-width: 60%;
+                        color: white;
+                        margin-left: 5%;
+                    }
+                }
+            }
+        }
+        .reviews {
+            background-color: $gray-color;
+            h3 {
+                text-align: center;
+                line-height: 5;
+            }
+            &_wrapper {
+                margin: auto;
+                max-width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+                &_item {
+                    border-radius: 15px;
+                    padding: 5%;
+                    margin: 2%;
+                    background-color: white;
+                    span {
+                        padding: 5px 0 5px 0;
+                        display: inline-block;
+                        color: black;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        padding: 2% 0 2% 0;
+        border-radius: 5% 5% 0 0;
+        transform: translateY(-20px);
+        background-color: white;
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 80%;
+            margin-top: 2%;
+            &_content {
+                line-height: 1.5;
+                &_map {
+                    margin-top: 5%;
+                }
+                &_text {
+                    .social {
+                        img {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+            &_call {
+                &_text {
+                    line-height: 2;
+                }
+                form {
+                    width: 100%;
+                    margin-top: 5%;
+                    p {
+                        margin-top: 5%;
+                    }
+                    span {
+                        color: red;
+                    }
+                    label {
+                        display: block;
+                        margin-top: 10%;
+                        position: relative;
+                        a {
+                            color: $btn-color;
+                        }
+                        &:hover .custom_checkbox {
+                            background-color: $gray-color;
+                        }
+                    }
+                    input {
+                        margin-top: 2%;
+                        width: 100%;
+                        border: 0.1px solid $gray-color;
+                        height: 30px;
+                        outline: none;
+                        padding: 0 0 0 5px;
+                        &:hover {
+                            background-color: rgba(128, 128, 128, 0.052);
+                        }
+                    }
+                    #work {
+                        width: 100%;
+                        display: block;
+                        border: none;
+                        background-color: #0a7cf5;
+                        outline: none;
+                        color: white;
+                        margin-top: 2%;
+                    }
+                    button {
+                        margin-top: 5%;
+                        border: none;
+                        width: 50%;
+                        height: 40px;
+                        background-color: $btn-color;
+                        color: white;
+                        transition: background-color  .5s ease, border-radius .5s ease-in;
+                        &:hover {
+                            background-color: $btn-color-hover;
+                            border-radius: 5px;
+                        }
+                    }
+                    #checkboxLabel {
+                        p {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
